@@ -20,7 +20,7 @@ export default function RootLayout({ children }: Props) {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', '${measurementId}', {
-        'send_page_view': false,
+        'send_page_view': true,
         'transport_type': 'beacon',
         'linker': {
           'domains': ['http://offical-site-one.vercel.app/]
