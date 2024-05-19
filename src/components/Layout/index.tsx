@@ -174,6 +174,15 @@ const CommonLayout: React.FC<IProps> = ({ children, curActive, defaultOpen = ['/
       <Layout>
 
         <Header style={{ ...getThemeBg(curTheme), position: 'fixed', width: '100%', zIndex: 1000 }}>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0T16HCKN9" />
+          <script dangerouslySetInnerHTML={{
+            __html: `  
+              window.dataLayer = window.dataLayer || [];  
+              function gtag(){dataLayer.push(arguments);}  
+              gtag('js', new Date());  
+              gtag('config', 'G-S0T16HCKN9');  
+            `,
+          }} />
           <Row style={{ display: 'flex', justifyContent: "space-between", alignItems: 'center' }}>
             <Col xs={11} sm={11} md={11} lg={11} xl={11}>
               <Image
