@@ -1,5 +1,5 @@
 "use client"
-import { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 
 type Props = {
   children: ReactNode;
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: Props) {
         'send_page_view': true,
         'transport_type': 'beacon',
         'linker': {
-          'domains': ['http://offical-site-one.vercel.app/]
+          'domains': ['http://offical-site-one.vercel.app/']
         }
       });
     `;
