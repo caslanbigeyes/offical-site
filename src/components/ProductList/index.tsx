@@ -36,7 +36,7 @@ export default function Index() {
     { label: '永磁静音直流电机五重超静音', url: '/pro8.png', des: t('ELECTRICAL'), address: t('address1'), num: 17, uom: '/个', linkUrl: 'https://xiaoluo.xiaoluoapp.com/web/#/h5/product?id=3515&ts=1715242099188' },
   ]
 
-  const handlepPush = (linkUrl) => {
+  const handlepPush = (linkUrl: any) => {
     router.push(linkUrl)
   }
 
@@ -76,7 +76,7 @@ export default function Index() {
       <div className={styles.products}>
         {
           products.map(i => (
-            <div style={{ marginTop: '23px' }} key={i.url} onClick={()=>handlepPush(i.linkUrl)}>
+            <div style={{ marginTop: '23px' }} key={i.url} onClick={() => handlepPush(i.linkUrl)}>
               <div className={styles.imgWrap}>
                 <Image
                   src={i.url}
