@@ -3,7 +3,8 @@ import {
   Pathnames
 } from 'next-intl/navigation';
 
-export const defaultLocale = 'zh';
+export const defaultLocale = 'en';
+
 
 export const locales = ['en', 'zh'] as const;
 
@@ -11,8 +12,10 @@ export const localePrefix =
   process.env.NEXT_PUBLIC_LOCALE_PREFIX === 'never' ? 'never' : 'as-needed';
 
 export const pathnames = {
-  '/': '/',
   '/home': '/home',
+  '/shop': '/shop',
+  '/enterPrise': '/enterPrise',
+  '/category': '/category',
   '/products': '/products',
   '/about': '/about',
   '/help': '/help',

@@ -3,7 +3,6 @@
     height: 572px;
     background: #fbfbfb;
     display: flex;
-    // justify-content: center;
     flex-direction: column;
     align-items: center;
 }
@@ -16,50 +15,57 @@
     color: #232D37;
     line-height: 50px;
     font-style: normal;
-    margin-top: 100px;
     text-align: center;
 }
 
 .send {
-    width: 290px;
     height: 18px;
     font-family: PingFangSC, PingFang SC;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18px;
     color: #333333;
     line-height: 18px;
-    text-align: left;
+    text-align: center;
     font-style: normal;
     margin-top: 12px;
-    white-space: nowrap;
-    /* 隐藏超出的文本 */
-    overflow: hidden;
-    /* 使用省略号表示超出的文本 */
-    // text-overflow: ellipsis;
 }
 
 .contactType {
     width: 764px;
     height: 232px;
-    // border: 1px solid red;
     margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.contactInput {
+    height: 40px;
+    border: 1px solid #333333;
+    border-radius: 0;
+}
+
+.contactInputArea {
+    border: 1px solid #333333;
+    border-radius: 0;
+}
+
+.contactBtn {
+    border: 1px solid #333333;
+    border-radius: 0;
+    height: 40px !important;
+    background: #333333 !important;
+    color: #FFFFFF !important;
+    width: 100%;
+}
 
 
 .left {
     height: 100%;
     width: 333px;
-    // border-right: 1px dashed #333333;
-    // text-align: center;
 }
 
 .warn {
-    // width: 135px;
-    // height: 36px;
     font-family: PingFangSC, PingFang SC;
     font-weight: 400;
     font-size: 15px;
@@ -67,8 +73,6 @@
     line-height: 18px;
     text-align: center;
     font-style: normal;
-    // padding-left: 30px;
-    // margin-left: 47px;
 }
 
 .copy {
@@ -86,7 +90,6 @@
     font-size: 12px;
     color: #333333;
     line-height: 21px;
-    // text-align: left;
     font-style: normal;
     background: #EEEEEE;
     width: 186px;
@@ -104,7 +107,6 @@
 }
 
 .right {
-    // margin-right: 58px;
     width: 475px;
 
     :global {
@@ -113,17 +115,21 @@
         }
 
         .ant-input-focused:not(.ant-input-disabled) {
-            border-color: #14B656 !important;
+            border-color: #333333 !important;
             /* 使用 !important 确保覆盖默认样式 */
         }
 
         .ant-input-outlined:focus {
-            border-color: #14B656 !important;
+            border-color: #333333 !important;
 
         }
 
         .ant-input-outlined:hover {
-            border-color: #14B656 !important;
+            border-color: #333333 !important;
+        }
+
+        .ant-btn-default {
+            height: 40px;
         }
     }
 }
@@ -152,7 +158,7 @@
     opacity: 0.7;
     width: 100%;
     border-radius: 0 !important;
-    background: #333333 !important;
+    background: #3F86FF !important;
     color: #FFFFFF !important;
 
     :glabal {
@@ -163,5 +169,14 @@
 }
 
 .changeBorde:hover {
-    border: 1px solid #14B656 !important;
+    border: 1px solid #3F86FF !important;
+}
+
+.submitBtn {
+    background: #3F86FF;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    background: #3F86FF !important;
 }

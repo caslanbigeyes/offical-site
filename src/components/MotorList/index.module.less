@@ -1,0 +1,57 @@
+// MotorCard.less  
+.motorListTitle {
+  font-weight: 600;
+  font-size: 18px;
+  color: #111111;
+}
+
+.motorCard {
+  // border: 1px solid #ccc;
+  margin-bottom: 10px;
+  // height: 250px;
+  width: fit-content;
+  cursor: pointer;
+
+  .title {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #333333;
+    width: 153px;
+    height: 41px;
+    overflow: hidden;
+    /* 使用省略号表示超出的文本，但这需要结合多行文本处理 */
+    text-overflow: ellipsis;
+    /* 不让单词在内部断开，但可能需要其他处理来避免文本溢出边界 */
+    word-break: keep-all;
+
+    /* 使用伪元素来实现多行文本省略号效果 */
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* 限制显示文本的行数 */
+    -webkit-box-orient: vertical;
+  }
+
+  .spec {
+    color: red;
+    display: flex;
+  }
+
+  .price {
+    color: #666666;
+    font-weight: 400;
+    font-size: 12px;
+  }
+}
+
+.motorList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .motorItem {
+    width: calc(33% - 20px);
+    margin: 10px;
+    // 其他样式...  
+  }
+}

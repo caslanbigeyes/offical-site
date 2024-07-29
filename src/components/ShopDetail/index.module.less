@@ -1,0 +1,103 @@
+.wrap {
+  width: 100%;
+  background: #FBFBFB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+  position: relative;
+  // margin-top: 10px;
+
+  // height: 1000px; /* 或者足够的高度以产生滚动 */  
+  // overflow-y: auto; /* 如果需要的话，但这可能不是必需的，取决于你的布局 */  
+  position: relative; /* 有时这有助于确保sticky定位正确 */ 
+}
+
+.products {
+  display: flex;
+  flex-direction: row;
+  width: 1020px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  // overflow-y: auto;
+}
+
+.navCategory {
+  width: 1020px;
+  display: flex;
+  margin: 15px 0 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.searchWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1020px;
+}
+
+.input {
+  width: 773px;
+  height: 30px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  // border: 1px solid #666D74;
+  margin: 16px 0;
+
+  :global {
+      .ant-input-outlined:focus-within {
+          border-color: #3F86FF;
+      }
+
+      .ant-input-outlined:hover {
+          border-color: #3F86FF;
+      }
+  }
+}
+
+.btn {
+  margin-left: 32px;
+}
+
+
+.activeArrow {
+  margin: 0 12px;
+  color: #999999;
+  cursor: pointer;
+}
+
+.arrow {
+  margin: 0 12px;
+}
+
+
+.activeCode {
+  color: #999999;
+  padding: 10px 20px 10px 10px;
+  position: relative;
+}
+
+.recommend:not(:first-child) {
+  margin-left: 16px;
+
+}
+
+.recommend {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.topPart{
+  display: flex;
+  position: relative;
+  // overflow-y: auto;
+}
+
+.fixedRight{
+  width: 530px;
+  height: auto;
+}

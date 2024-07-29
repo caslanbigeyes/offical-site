@@ -1,0 +1,116 @@
+.menu-container {
+  display: flex;
+  position: relative;
+  z-index: 9999;
+  background: #fff;
+  width: 600px;
+  height: 297px;
+  transform: translateY(-5px);
+  position: absolute;
+  flex-wrap: nowrap;
+}
+
+.first-level,
+.second-level,
+.third-level {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+  width: 200px;
+  // height: 44px;
+  // line-height: 44px;
+  align-items: center;
+  font-size: 12px;
+  color: #333333;
+  text-align: left;
+  white-space: noWrap;
+  overflow: hidden;
+  /* 可选：隐藏超出容器的文本 */
+  text-overflow: ellipsis;
+
+  /* 可选：用省略号表示被截断的文本 */
+}
+
+.link {
+  color: #000;
+}
+
+.menu-item:hover {
+  background: #F6F8FA;
+}
+
+.second-level,
+.third-level {
+  top: 0;
+  left: 100%;
+  display: block;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+.first-level .menu-item:hover>.second-level,
+.second-level .menu-item:hover>.third-level {
+  display: block;
+}
+
+.first-active {
+  // width: 158px;
+  font-weight: 500;
+  background: #F6F8FA;
+}
+
+.second-active {
+  // width: 158px;
+  // height: 33px;
+  font-weight: 500;
+  background: #F6F8FA;
+  // line-height: 33px;
+}
+
+.third-active {
+  // height: 33px;
+  font-weight: 500;
+  background: #F6F8FA;
+  // line-height: 33px;
+}
+
+// /* 自定义滚动条样式 */
+// .second-level::-webkit-scrollbar,
+// .third-level::-webkit-scrollbar {
+//   width: 8px; /* 滚动条宽度 */
+// }
+
+// .second-level::-webkit-scrollbar-track,
+// .third-level::-webkit-scrollbar-track {
+//   background: #f1f1f1; /* 滚动条轨道背景色 */
+// }
+
+// .second-level::-webkit-scrollbar-thumb,
+// .third-level::-webkit-scrollbar-thumb {
+//   background: #888; /* 滚动条滑块背景色 */
+//   border-radius: 4px; /* 滚动条滑块圆角 */
+// }
+
+// .second-level::-webkit-scrollbar-thumb:hover,
+// .third-level::-webkit-scrollbar-thumb:hover {
+//   background: #555; /* 滚动条滑块悬浮背景色 */
+// }
+
+
+.first-checked {
+  color: #3F86FF;
+}
+
+.second-checked {
+  color: #3F86FF;
+}
+
+.third-checked {
+  color: #3F86FF;
+}

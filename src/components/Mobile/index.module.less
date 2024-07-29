@@ -1,0 +1,468 @@
+.wrap {
+    width: 100%;
+    height: 100%;
+    // background: #ffffff;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    min-height: 100vh;
+}
+
+.wrap-content {
+    background: #ffffff;
+}
+
+.downLoad {
+    // position: relative;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-flow: nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5vw;
+    // height: 6.2rem;
+    // margin: 0 ;
+    color: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.downLoad-content {
+    display: flex;
+    flex-flow: nowrap;
+    align-items: center;
+    width: 100%;
+    margin: 0 2.6667vw;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 12.8vw;
+    width: 12.8vw;
+    height: 12.8vw;
+    margin-right: 3.2vw;
+    border-radius: 2.133333vw;
+}
+
+.info {
+    flex: 1;
+    margin-right: 2.9333vw;
+    margin-left: 1.0667vw;
+}
+
+.title {
+    // font-weight: 500;
+    font-size: 4.2667vw;
+    color: #000000;
+    line-height: 5.8667vw;
+    text-align: left;
+    font-style: normal;
+}
+
+.sub-title {
+    font-weight: 400;
+    font-size: 3.2vw;
+    color: #000000;
+    font-size: 4.2667vw;
+
+    line-height: 4.5333vw;
+    text-align: left;
+    font-style: normal;
+    text-align: left;
+    font-style: normal;
+}
+
+.sub-title-des {
+    font-size: 3.2vw;
+    color: #777C7F;
+    margin-top: 2px;
+}
+
+.open {
+    color: #ffffff;
+    // margin-right: 4.266667vw;
+    width: 10.2667vw;
+    height: 8.5333vw;
+    background: #14B656;
+    border-radius: 1.6vw;
+    text-align: center;
+    font-size: 4.5333vw;
+    line-height: 8.5333vw;
+    padding: 1.0667vw 4.5333vw;
+
+}
+
+
+.close {
+    position: absolute;
+    top: .5333vw;
+    right: 1vw;
+    padding: 1.333333vw;
+    color: #999999;
+}
+
+.nav {
+    height: 14.4vw;
+    // background: #ffffff;
+    width: 100%;
+    line-height: 14.4vw;
+    overflow-x: auto;
+    /* 当内容超出容器时，启用横向滚动 */
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    -webkit-overflow-scrolling: touch;
+
+    /* 改进移动设备的滚动性能 */
+    /* 隐藏WebKit的滚动条 */
+    &::-webkit-scrollbar {
+        display: none;
+        /* 隐藏滚动条 */
+    }
+}
+
+.navWrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 0 3.2vw;
+
+}
+
+.nav-item {
+    font-weight: 400;
+    font-size: 3.7333vw;
+    color: #666666;
+    line-height: 7.2vw;
+    text-align: center;
+    font-style: normal;
+    height: 7.2vw;
+    border-radius: 1.6vw;
+    border: .2667vw solid #666666;
+    padding: .5333vw 1.8667vw;
+    margin-right: 2.6667vw;
+    display: inline-flex;
+    /* 使用 inline-flex */
+    flex-shrink: 0;
+    /* 阻止元素缩小 */
+    flex-basis: 13.3333vw;
+    /* 设置初始宽度 */
+    max-width: fit-content;
+    /* 根据内容自适应宽度 */
+    /* 右侧外边距，用于分隔导航项 */
+}
+
+.active {
+    color: #14B656;
+    border: 1px solid #14B656 !important;
+}
+
+.products {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+
+    box-sizing: border-box;
+    padding-bottom: 2.6667vw;
+    height: 100%;
+    justify-content: space-around;
+    z-index: 999;
+}
+
+.imgWrap {
+    width: 48vw;
+    // height: 48vw;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgWrap:nth-of-type(4) {
+    margin-right: 0;
+}
+
+.imgProWrap {
+    margin-top: 2.6667vw;
+    width: 48vw;
+    background-color: #fff;
+
+}
+
+.textWrap {
+    width: 48vw;
+    // min-height: 38.4vw;
+    display: block;
+    background: #FFFFFF;
+    border-bottom-left-radius: 2.1333vw;
+    border-bottom-right-radius: 2.1333vw;
+}
+
+.price {
+    padding: 2.6667vw 0px .5333vw 3.2vw;
+}
+
+.num {
+    font-weight: 300;
+    font-size: 6.4vw;
+    color: #FF5000;
+    line-height: 8.8vw;
+    text-align: left;
+    font-style: normal;
+    white-space: nowrap;
+
+}
+
+.uom {
+    width: 4.8vw;
+    height: 4.5333vw;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    font-size: 3.2vw;
+    color: #000000;
+    line-height: 4.5333vw;
+    text-align: left;
+    font-style: normal;
+}
+
+.des {
+    min-height: 9.6vw;
+    /* 假设行高为18px，这里设置高度为两行行高之和 */
+    /* 使用em单位或rem单位可以使高度与字体大小成比例 */
+    line-height: 1.5;
+    /* 或者直接使用具体的行高值，比如18px */
+    // height: auto;
+    /* 初始设置为auto，然后通过伪元素设置具体高度 */
+    background: #FFFFFF;
+    border-radius: 2.1333vw;
+    margin-top: .8vw;
+    padding-left: 4vw;
+    font-weight: 400;
+    font-size: 3.4667vw;
+    color: #333333;
+    /* 文本不换行，直到遇到<br>标签或元素边界 */
+    // white-space: nowrap;
+    /* 隐藏超出的文本 */
+    overflow: hidden;
+    /* 使用省略号表示超出的文本，但这需要结合多行文本处理 */
+    text-overflow: ellipsis;
+    /* 不让单词在内部断开，但可能需要其他处理来避免文本溢出边界 */
+    word-break: keep-all;
+
+    /* 使用伪元素来实现多行文本省略号效果 */
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* 限制显示文本的行数 */
+    -webkit-box-orient: vertical;
+    /* 这些属性是WebKit浏览器特有的，Firefox和Edge可能需要其他方法 */
+}
+
+.address {
+    height: 10.1333vw;
+    width: 100%;
+    border-top: 1px dashed rgba(51, 51, 51, 0.1);
+    margin-top: 3.2vw;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom-left-radius: 2.1333vw;
+    border-bottom-right-radius: 2.1333vw;
+}
+
+.icon {
+    height: 4.5333vw;
+    font-weight: 400;
+    font-size: 3.2vw;
+    color: #3AB86D;
+    line-height: 4.5333vw;
+    text-align: left;
+    font-style: normal;
+    background: #EFFFF6;
+    border-radius: .5333vw;
+    margin-left: 4vw;
+    white-space: nowrap;
+}
+
+.afterText {
+    width: 36.8vw;
+    height: 4.8vw;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    font-size: 3.4667vw;
+    color: #333333;
+    line-height: 4.8vw;
+    text-align: left;
+    font-style: normal;
+    margin-left: 1.8667vw;
+    white-space: nowrap;
+    /* 隐藏超出的文本 */
+    overflow: hidden;
+    /* 使用省略号表示超出的文本 */
+    text-overflow: ellipsis;
+}
+
+.loading {
+    position: fixed;
+    bottom: 2.6667vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 8vw;
+    border-radius: 2.1333vw;
+    margin-top: 3.2vw;
+    font-weight: 400;
+    font-size: 4.2667vw;
+    line-height: 8vw;
+    text-align: center;
+    color: '#bfbfbf';
+    opacity: 0.7;
+    z-index: 1;
+}
+
+
+.noData {
+    text-align: center;
+    padding-top: 2.6667vw;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    color: '#bfbfbf';
+    opacity: 0.7;
+    background: #fafafa;
+}
+
+
+.wrapImage {
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 19vw 2.9333vw 2.6667vw;
+}
+
+.search-wrapper {
+    display: flex;
+    margin: 0 3.2vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    width: 66.1333vw;
+    height: 8vw;
+
+    :global {
+        .ant-input-outlined:focus-within {
+            border-color: #14B656;
+        }
+
+        .ant-input-outlined:hover {
+            border-color: #666666;
+        }
+    }
+}
+
+.all-category {
+    margin-left: 3.7333vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.all-category-text {
+    color: #14B656;
+    margin-left: 1.3333vw;
+    font-size: 3.7333vw;
+
+}
+
+.contact {
+    margin: 1.6vw 2.6667vw 2.6667vw 2.6667vw; // 不生效
+    width: 42.6667vw;
+    height: 7.4667vw;
+    background: #F6F6F6;
+    border-radius: 1.6vw;
+    border: .2667vw solid #666666;
+    line-height: 7.4667vw;
+    color: #666666;
+    text-align: center;
+}
+
+.dialog-content {
+    text-align: center;
+    font-size: 17px;
+    color: #777C7F;
+}
+
+.menu-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 11.7333vw;
+
+    h1 {
+        font-weight: 500;
+        font-size: 4.2667vw;
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    .menu-arrow {
+        position: absolute;
+        left: 2vw;
+        font-size: 4.8vw;
+    }
+
+    .menu-box-text {
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 500;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.box {
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    margin-bottom: 4vw;
+    opacity: 0.1;
+}
+
+.noDataWrap {
+    background: #ffffff;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    padding-top: 44.5333vw;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.noData {
+    color: #999999;
+    background: #fafafa;
+}
+
+.noDataIcon {
+    color: #999999;
+    background: #fff;
+    margin-top: 4.2667vw;
+}
+
+.imgProContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}

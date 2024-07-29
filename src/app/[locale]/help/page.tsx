@@ -7,10 +7,11 @@ import Image from "next/image";
 import Layout from '@/components/Layout';
 import styles from './index.module.less';
 import dynamic from 'next/dynamic';
+import withSuspense from '@/hoc';
 
-const Footer = dynamic(() => import('@/components/Footer'), { ssr: false });
-const Faq = dynamic(() => import('./Faq'), { ssr: false });
-const VideoList = dynamic(() => import('./VideoList'), { ssr: false });
+const Footer = withSuspense(dynamic(() => import('@/components/Footer'), { ssr: true }));
+const Faq = withSuspense(dynamic(() => import('./Faq'), { ssr: true }));
+const VideoList = withSuspense(dynamic(() => import('./VideoList'), { ssr: true }));
 
 
 const { SubMenu } = Menu;
@@ -34,11 +35,11 @@ export default function Order() {
     <Layout curActive='/help'>
       <main>
         <Image
-          src="/helpCenter.png"
+          src="https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/67df7b8f-6b41-46f4-ba0d-e475bec48e2d.png"
           alt="bincial"
           width={1920}
           height={234}
-          style={{ borderRadius: 6, width: '100%' }}
+          style={{ width: '100%' }}
           priority
         />
         <div className={styles['menu']}>
@@ -59,19 +60,19 @@ export default function Order() {
           {selectedItem === 'item1' && <div><VideoList /></div>}
           {selectedItem === 'item2' && <div className={styles['certification-guide']}>
             <Image
-              src={isEn ? '/helpGuide1.png' : "/guide1.png"}
+              src={isEn ? 'https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/03607c83-b180-4b15-9614-9387925f823a.png' : "https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/19db0c77-e78c-49e1-a168-095704cd773f.png"}
               alt="bincial"
               width={1032}
               height={617}
-              style={{ borderRadius: 6, width: '100%' }}
+              style={{ width: '100%' }}
               priority
             />
             <Image
-              src={isEn ? '/helpGuide2.png' : "/guide2.png"}
+              src={isEn ? 'https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/bc8bcc46-3e68-4961-a052-1aa63545e905.png' : "https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/6929bc3c-6f23-4c98-9170-5ba340246b95.png"}
               alt="bincial"
               width={1032}
               height={617}
-              style={{ borderRadius: 6, width: '100%' }}
+              style={{ width: '100%' }}
               priority
             />
           </div>}

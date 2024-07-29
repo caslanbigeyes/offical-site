@@ -9,20 +9,20 @@ export default function Index() {
     const locale = useLocale();
     const isEn = locale === 'en'
     const useLists = [{
-        url: '/purchase.png',
+        url: 'https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/939bb046-6645-462a-bb12-b6eb65797d9c.png',
         name: t("Purchaser"),
         des1: t("userDes1"),
         des2: t("userDes2"),
 
     },
     {
-        url: '/supplier.png',
+        url: 'https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/6f70d7bd-0c1a-495e-8306-df62d3129169.png',
         name: t("Suppliers"),
         des1: t("userDes3"),
         des2: t("userDes4"),
     },
     {
-        url: '/company.png',
+        url: 'https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/42b9b3b9-c15c-4e4b-a4e3-911642543d6f.png',
         name: t("Third-Party"),
         des1: t("userDes5"),
         des2: t("userDes6"),
@@ -58,11 +58,11 @@ export default function Index() {
                     {useLists.map(i => (
                         <div className={styles.wrapRow} key={i.url}>
                             <Image
+                                priority
                                 src={i.url}
-                                alt="bincial"
+                                alt={`${i.name}`}
                                 width={328}
                                 height={223}
-                                priority
                                 style={{ borderRadius: 6 }}
                             />
                             <div className={styles.bottom}>
@@ -70,8 +70,8 @@ export default function Index() {
                                     {i.name}
                                 </div>
                                 <div className={styles.des}>
-                                    <div>{i.des1}</div>
-                                    <div className={styles.des2}>{i.des2}</div>
+                                    <div className={styles.des2} style={{ height: isEn ? '50px' : 'unset' }}>{i.des1}</div>
+                                    <div className={styles.des2} style={{ height: isEn ? '50px' : 'unset' }}>{i.des2}</div>
                                 </div>
                             </div>
                         </div>
@@ -103,12 +103,12 @@ export default function Index() {
 
             <div className={styles.footerPage}>
                 <Image
-                    src={isEn ? "/pageFooterEn.png" : "/pageFooter.png"}
+                    priority
+                    src={isEn ? "https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/da3b88bf-dcf3-4497-be4b-015dafe88062.png" : "https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/6dfca5b1-99f2-4ce8-9d92-12052ddd8836.png"}
                     alt="bincial"
                     width={1920}
                     height={315}
-                    style={{ borderRadius: 6, width: '100%' }}
-                    priority
+                    style={{ width: '100%' }}
                 />
             </div>
         </>

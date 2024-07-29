@@ -1,4 +1,4 @@
-Language : 🇺🇸 | [🇨🇳](./README.zh-CN.md) 
+Language : 🇺🇸 | [🇨🇳]
 An out-of-box UI solution for enterprise applications as a React boilerplate.
 
 ## Features

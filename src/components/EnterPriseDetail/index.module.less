@@ -1,0 +1,355 @@
+.wrap {
+  width: 100%;
+  background: #FBFBFB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+  position: relative;
+  // margin-top: 10px;
+
+  // height: 1000px; /* 或者足够的高度以产生滚动 */  
+  // overflow-y: auto; /* 如果需要的话，但这可能不是必需的，取决于你的布局 */  
+  position: relative;
+  /* 有时这有助于确保sticky定位正确 */
+}
+
+.companyProfile {
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto;
+  // padding: 20px;
+  // background-color: #fff;
+  border-radius: 8px;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.header {
+  // text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 16px;
+  color: #666;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+.content {
+  display: flex;
+  // justify-content: space-between;
+  flex-direction: column;
+
+}
+
+.imageGallery {
+  position: relative;
+  width: 100%;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.navButton:first-of-type {
+  left: 10px;
+}
+
+.navButton:last-of-type {
+  right: 10px;
+}
+
+.info {
+  font-size: 18px;
+  color: #111111;
+  height: 60px;
+  margin-left: 12px;
+}
+
+.companyName {
+  font-weight: 600;
+  font-size: 18px;
+  color: #111111;
+  line-height: 25px;
+  text-align: left;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  // margin-bottom: 20px;
+  font-size: 12px;
+  flex-wrap: nowrap;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs span {
+  flex-wrap: nowrap;
+}
+
+.tabs .activeTab {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+.details {
+  padding: 10px;
+}
+
+.details h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.details p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+
+
+.contactButton {
+  width: 308px;
+  height: 48px;
+  background: #3F86FF;
+  border-radius: 24px;
+  border: none;
+  color: #fff;
+  margin-top: 31px;
+  cursor: pointer;
+}
+
+.contactTitle {
+  font-weight: 500;
+  font-size: 20px;
+  color: #111111;
+  line-height: 28px;
+  text-align: left;
+  font-style: normal;
+  width: 158px;
+  height: 36px;
+  display: block;
+}
+
+
+.content2 {
+  border: 1px solid #ddd;
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #DEDEE6;
+  padding: 16px;
+}
+
+.container {
+  width: 660px;
+  height: auto;
+  // padding: 0 ;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  margin-bottom: 24px;
+}
+
+.tabs {
+  display: flex;
+  // margin-bottom: 20px;
+  // width: 490px;
+  height: 60px;
+  padding: 0 16px;
+  ;
+  line-height: 60px;
+  background: #EDF3FE;
+  // background: red;
+  border-radius: 8px 8px 0px 0px;
+
+  span {
+    margin-right: 15px;
+    cursor: pointer;
+    color: #999;
+
+    &.activeTab {
+      color: #3F86FF;
+      border-bottom: 2px solid #3F86FF;
+    }
+  }
+}
+
+.content {
+  // padding: 0  16px;
+
+  :global {
+    .ant-image-mask-info {
+      display: none;
+    }
+  }
+
+  .section {
+    margin-bottom: 20px;
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+
+      td {
+        padding: 8px;
+        border: 1px solid #ddd;
+      }
+    }
+
+    .certifications {
+      display: flex;
+
+      img {
+        margin-right: 10px;
+        width: 100px;
+        height: auto;
+      }
+    }
+  }
+}
+
+.cardTitle {
+  color: #111111;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+
+.wrapGallery {
+  width: 490px;
+  max-width: 490px;
+}
+
+// .imgWrap{}
+
+.detail-pic {
+  width: 458px;
+  height: 160px;
+}
+
+.tableHeader {
+  background: #f4f4f4;
+}
+
+.contentRow {
+  display: flex;
+  margin-top: 32px;
+}
+
+.columnLeft {
+  display: flex;
+  flex-direction: column;
+  margin-left: 32px;
+  align-items: end;
+}
+
+
+.messengerButton {
+  width: 172px;
+  height: 48px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  border: none;
+  margin-top: 31px;
+}
+
+.contact {
+  // margin-top: 20px;
+  // text-align: center;
+  // width: 340px;
+  height: 250px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 24px 16px;
+  border: 1px solid #DEDEE6;
+
+}
+
+.contact h2 {
+  font-size: 20px;
+  // margin-bottom: 10px;
+}
+
+.contact p {
+  font-size: 16px;
+  color: #333;
+  // margin-bottom: 20px;
+}
+
+
+.contactInfo {
+  display: flex;
+}
+
+.companyNameSmall {
+  margin-left: 8px;
+}
+
+
+.messengerButton {
+  width: 172px;
+  height: 48px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  border: none;
+  margin-top: 31px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.messengerContainer {
+  display: flex;
+  justify-content: end;
+}
+
+.rowLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

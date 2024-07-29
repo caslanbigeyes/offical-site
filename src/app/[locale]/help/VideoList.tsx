@@ -67,7 +67,7 @@ const VideoList = () => {
         <div className={styles['wrapVideo']}>
             <video muted autoPlay style={{ width: '652px', height: '367px', borderRadius: "8px" }} src={currentVideo?.url} controls></video>
             <div className={styles['catalogue']}>
-                <div className={styles['cat-title']}>目录</div>
+                <div className={styles['cat-title']}>{t('Catalogue')}</div>
                 <List
                     style={{ height: '317px' }}
                     dataSource={videos}
@@ -78,7 +78,7 @@ const VideoList = () => {
                             actions={[
                                 <Button
                                     key="myBtn"
-                                    style={{ color: '#333333' }}
+                                    style={{ color: '#333333', opacity: video.watched ? '0.5' : 1 }}
                                     type="link"
                                     disabled={video.watched}
                                     onClick={() => {

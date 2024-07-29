@@ -1,7 +1,7 @@
 'use client'
 import { useLocale, useTranslations } from 'next-intl';
 import React, { useEffect, useState, useRef } from 'react'
-import { Form, Input, notification, Anchor } from 'antd';
+import { Form, Input, notification, Anchor, Modal } from 'antd';
 import { useRouter } from 'next/navigation';
 import Layout from '@/components/Layout';
 import Image from "next/image";
@@ -10,10 +10,11 @@ import { joinApi } from '../../../api';
 import axios from 'axios';
 import styles from './index.module.less';
 import dynamic from 'next/dynamic';
+import withSuspense from '@/hoc';
 
 
-const Footer = dynamic(() => import('@/components/Footer'), { ssr: false });
-const UserGroup = dynamic(() => import('@/components/UserGroup'), { ssr: false });
+const Footer = withSuspense(dynamic(() => import('@/components/Footer'), { ssr: true }));
+const UserGroup = withSuspense(dynamic(() => import('@/components/UserGroup'), { ssr: true }));
 
 interface MyAxiosResponse<T = any, R = any> {
   code?: number; // 注意这里使用了可选属性（?），因为不是所有的 Axios 响应都会包含 code  
@@ -45,7 +46,8 @@ export default function About() {
   const [phone, setPhone] = useState('');
   const [position, setPosition] = useState('');
   const [fileUrl, setResume] = useState(null); // 假设resume是一个File对象 
-
+  const [applyVisible, setApplyVisible] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState(false);
 
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -57,24 +59,27 @@ export default function About() {
     url: '/curture1.png',
     name: t("MISSION"),
     des1: t("cardOneDes1"),
-
+    des2: '',
   },
   {
     url: '/curture2.png',
     name: t("VISION"),
     des1: t("cardOneDes2"),
+    des2: t("cardOneDes2Y"),
 
   },
   {
     url: '/curture3.png',
     name: t("Biz Philosophy"),
     des1: t("cardOneDes3"),
+    des2: t("cardOneDes3Y"),
 
   },
   {
     url: '/curture4.png',
     name: t("Team Culture"),
     des1: t("cardOneDes4"),
+    des2: t("cardOneDes4Y"),
 
   }
   ]
@@ -111,6 +116,10 @@ export default function About() {
     }
   };
 
+  const handleApply = () => {
+    setApplyVisible(!applyVisible)
+  }
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
@@ -122,24 +131,24 @@ export default function About() {
   // 处理文件选择  
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      if (file && file.size > 20 * 1024 * 1024) { // 20MB in bytes  
+        alert(t('File size exceeds 20MB limit'));
+        event.target.value = ''; // 清除输入值，以便用户可以选择其他文件  
+        return;
+      }
       const formData = new FormData();
       // 添加文件到 formData 对象
       formData.append('file', event.target.files![0]);
-      axios.post('https://xiaoluo-dev.xiaoluoapp.com/file/cosUpload', formData).then((res: MyAxiosResponse) => {
+      axios.post('https://xiaoluo.xiaoluoapp.com/file/cosUpload', formData).then((res: MyAxiosResponse) => {
         if (res.data.code === 200) {
           setFormData((prevFormData) => ({
             ...prevFormData,
             fileUrl: res.data.pathUrl, // 获取文件对象  
           }));
-          notification.success({
-            message: `${res.data.msg}`,
-            placement: "top",
-          });
+          setUploadStatus(true);
         } else {
-          notification.error({
-            message: `${res.data.msg}`,
-            placement: "top",
-          });
+          setUploadStatus(false);
         }
       })
     }
@@ -163,6 +172,8 @@ export default function About() {
           applyPosition: "",
 
         } as FormData)
+        setApplyVisible(false)
+        setUploadStatus(false)
       } else {
         notification.error({
           message: `${res.msg}`,
@@ -187,8 +198,8 @@ export default function About() {
             if (stickyNav.parentNode) {
               stickyNav.parentNode.removeChild(stickyNav);
             }
-            document.body.appendChild(stickyNav);
-            stickyNav?.classList.remove('hidden');
+            // document.body.appendChild(stickyNav);
+            // stickyNav?.classList.remove('hidden');
             // 动态的插入到body下
           } else {
             setIsSticky(false);
@@ -218,20 +229,27 @@ export default function About() {
     // };
   }, []);
 
+
+  // 定义一个用于控制显示与隐藏的类名  
+  const displayClass = applyVisible ? styles['visible'] : styles['hidden'];
+
   return (
     <Layout curActive='/about'>
       <main>
-        <Image
-          ref={imageRef}
-          src="/aboutBg.png"
-          alt="bincial"
-          width={1920}
-          height={766}
-          style={{ borderRadius: 6, width: '100%' }}
-          priority
-          id='img-wrap'
-        />
-
+        <div className={styles['imageContainer']}>
+          <Image
+            ref={imageRef}
+            src="https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/fb38c075-d13b-42a8-9441-24e8e38f1fbf.png"
+            alt="bincial"
+            width={1920}
+            height={766}
+            style={{ width: '100%' }}
+            id='img-wrap'
+            priority
+            layout="responsive"
+            className={styles.responsiveImage}
+          />
+        </div>
 
         <div className={`${styles['anchor-container']}  ${isSticky ? styles['sticky'] : ''}`} id="sticky-nav" ref={navRef}  >
           <a href="#section1"
@@ -270,7 +288,6 @@ export default function About() {
                     alt="bincial"
                     width={242}
                     height={205}
-                    priority
                     style={{ borderRadius: 6 }}
                   />
                 </div>
@@ -278,9 +295,11 @@ export default function About() {
                   <div className={styles.bottomName}>
                     {i.name}
                   </div>
-                  <div className={styles.des} style={{ lineHeight: isEn ? 'none' : '75px' }}>
+                  {isEn ? <div className={styles.des} style={{}}>
                     {i.des1}
-                  </div>
+                  </div> : <div className={styles.des} style={{}}>
+                    {i.des1}<div>{i.des2}</div>
+                  </div>}
                 </div>
               </div>
 
@@ -295,7 +314,7 @@ export default function About() {
           <div className={styles['photoText']}>
             <div className={styles['photo']}>
               <Image
-                src='/businessBg.png'
+                src='https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/5414a064-5937-4369-9710-0c7d4e731843.png'
                 alt="bincial"
                 width={505}
                 height={317}
@@ -303,7 +322,7 @@ export default function About() {
                 style={{ borderRadius: 6 }}
               />
             </div>
-            <div className={styles['section2Text']}>
+            <div className={styles['section2Text']} style={{ marginTop: isEn ? '41px' : '121px' }}>
               <div className={styles['des1']} style={{ whiteSpace: isEn ? "break-spaces" : 'nowrap' }}>
                 {t("aboutProduceCompany")}
               </div>
@@ -331,7 +350,7 @@ export default function About() {
           <div className={styles['photoText']}>
             <div className={`${styles['photo']} ${styles['right']} `}>
               <Image
-                src='/talent.png'
+                src='https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/8ed1eb9f-1f9c-4b39-a5fc-5edc63a02f51.png'
                 alt="bincial"
                 width={505}
                 height={317}
@@ -339,7 +358,7 @@ export default function About() {
                 style={{ borderRadius: 6 }}
               />
             </div>
-            <div className={`${styles['section2Text']} ${styles['left']} `}>
+            <div style={{ marginTop: isEn ? '11px' : '161px' }} className={`${styles['section2Text']} ${styles['left']}`}>
               <div className={styles['des1']} style={{ lineHeight: isEn ? "32px" : "38px" }}>
                 {t("aboutTalentDes1")}
               </div>
@@ -357,7 +376,7 @@ export default function About() {
           <div className={styles['photoText']}>
             <div className={styles['photo']}>
               <Image
-                src='/team.png'
+                src='https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/24521492-b485-4d37-8c1b-ce993c3aeb9c.png'
                 alt="bincial"
                 width={505}
                 height={317}
@@ -366,20 +385,20 @@ export default function About() {
               />
             </div>
             <div className={`${styles['section2Text']} ${styles['leftTeam']} `}>
-              <div style={{ marginTop: isEn ? '0px' : '37px', lineHeight: isEn ? "20px" : "38px" }} className={`${styles['des1']} ${styles['teamProduce']} `}>
+              <div style={{ marginTop: isEn ? '0px' : '19px', lineHeight: isEn ? "20px" : "38px" }} className={`${styles['des1']} ${styles['teamProduce']} `}>
                 {t("aboutTeamDes1")}
               </div>
               <div style={{ marginTop: isEn ? '36px' : '24px', lineHeight: isEn ? "20px" : "38px" }} className={`${styles['des2']} ${styles['wordBreak']}`}>
                 {t("aboutTeamDes2")}
               </div>
-              <div style={{ marginTop: isEn ? '0px' : '24px', lineHeight: isEn ? "20px" : "38px" }} className={`${styles['des2']} ${styles['wordBreak']}`}>
+              <div style={{ marginTop: isEn ? '0px' : '-11px', lineHeight: isEn ? "20px" : "38px" }} className={`${styles['des2']} ${styles['wordBreak']}`}>
                 {t("aboutTeamDes3")}
               </div>
             </div>
           </div>
         </div>
 
-        <div className={`${styles["section1"]} ${styles["wrapJoin"]}`} id="section5">
+        <div className={`${styles["section1"]} ${styles["wrapJoin"]}`} id="section5" style={{ position: 'relative' }}>
           <div className={styles["title"]}>{t("JOIN US")}</div>
           <div className={styles['dec']}>{t("aboutDes5")}</div>
 
@@ -407,7 +426,10 @@ export default function About() {
             ))}
           </div>
 
-          <div className={styles['apply']}>
+
+
+
+          <div className={`${styles['apply']} ${displayClass}`}>
             <form onSubmit={handleFormSubmit} id="applicationForm" action="/submit_form" method="post" encType="multipart/form-data">
               <div className={styles['form-group']}>
                 <label className={`${styles["label"]} ${styles["name-prefix"]}`} htmlFor="name">    {t("Name")}</label>
@@ -418,20 +440,39 @@ export default function About() {
                 <input value={formData.phone} onChange={handleInputChange} type="tel" id="phone" name="phone" className={styles["input-field"]} required />
               </div>
               <div className={styles['form-group']}>
-                <label className={styles["label"]} htmlFor="applyPosition">    {t("Poaition")}</label>
-                <input value={formData.applyPosition} onChange={handleInputChange} type="text" id="applyPosition" name="applyPosition" className={styles["input-field"]} />
+                <label className={`${styles["label"]} ${styles["name-prefix"]} `} htmlFor="applyPosition" >    {t("Poaition")}</label>
+                <input value={formData.applyPosition} onChange={handleInputChange} type="text" id="applyPosition" name="applyPosition" className={styles["input-field"]} required />
               </div>
               <div className={styles['form-group']}>
-                <div className={styles["file-upload-wrapper"]}>
-                  <button className={`${styles["file-upload-btn"]} ${styles["name-prefix"]}`} type="button">    {t("Upload CV")}</button>
-                  <input onChange={handleFileChange} type="file" id="fileUrl" name="fileUrl" className={styles["input-field"]} required />
+                {uploadStatus ? <div className={styles["file-upload-wrapper"]}>
+                  <Image
+                    style={{ position: 'absolute', left: isEn ? '235px' : '255px' }}
+                    src='https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/7146cb73-d567-438d-866c-96c09d0ae731.png'
+                    alt="bincial"
+                    width={18}
+                    height={18}
+                    priority
+                  /><span style={{ color: '#3F86FF' }}>{t('uploadStatus')}</span>
                 </div>
+                  : <div className={styles["file-upload-wrapper"]}>
+                    <Image
+                      style={{ position: 'absolute', left: '255px' }}
+                      src='https://website-1316858268.cos.ap-shanghai.myqcloud.com/files/2024-06-07/e5744dac-d174-4498-acfc-bb6f46ee6506.png'
+                      alt="bincial"
+                      width={18}
+                      height={18}
+                      priority
+                    /><button className={`${styles["file-upload-btn"]} ${styles["name-prefix"]}`} type="button">    {t("Upload CV")}</button>
+                    <input onChange={handleFileChange} type="file" id="fileUrl" name="fileUrl" className={styles["input-field"]} required />
+                  </div>}
               </div>
-              <div className={styles['form-apply']}>
+              <div className={styles['form-apply']} style={{ marginTop: !applyVisible ? '-20px' : '32px' }}>
                 <button className={styles['form-btn']} type="submit">{t("APPLY NOW")}</button>
               </div>
             </form>
-
+          </div>
+          <div className={styles['form-apply']} style={{ display: !applyVisible ? 'flex' : 'none', marginTop: !applyVisible ? '-20px' : '32px' }}>
+            <button onClick={handleApply} className={styles['form-btn']} >{uploadStatus ? t("APPLYSUCESS") : t("APPLY NOW")}</button>
           </div>
         </div>
         <Footer />

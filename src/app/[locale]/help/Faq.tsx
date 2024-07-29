@@ -63,14 +63,14 @@ const FAQ = () => {
 
                             <h2 className={styles['faq-title']}>{t("helpBasicInfo17")}</h2>
                             <p className={styles['faq-tip']}> {t("helpBasicInfo18")} </p>
-                            <a href='http://small-h5-dev.xiaoluoapp.com/policy.html ' className={styles['faq-tip']}>{t("helpBasicInfo19")}</a>
+                            <a href="/en/policy" target='_blank' className={styles['faq-tip']}>{t("helpBasicInfo19")}</a>
                         </div>
                     )}
                     {activeSection === 'accountSecurity' && (
                         <div>
                             <h2 className={styles['faq-title']}>{t("helpBasicInfo20")}</h2>
                             <p className={styles['faq-tip']}>{t("helpBasicInfo21")} </p>
-                            <a className={styles['faq-tip']}>{t("helpBasicInfo22")}</a>
+                            <a href="/en/user" target='_blank' className={styles['faq-tip']}>{t("helpBasicInfo22")}</a>
 
                             <h2 className={styles['faq-title']}>{t("helpBasicInfo23")}</h2>
                             <p className={styles['faq-tip']}>{t("helpBasicInfo24")} </p>

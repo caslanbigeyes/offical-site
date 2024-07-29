@@ -1,0 +1,41 @@
+.searchWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1020px;
+}
+
+.input {
+  width: 773px;
+  height: 30px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  // border: 1px solid #666D74;
+  margin: 16px 0;
+
+  :global {
+    .ant-input-outlined:focus-within {
+      border-color: #3F86FF;
+    }
+
+    .ant-input-outlined:hover {
+      border-color: #3F86FF;
+    }
+  }
+}
+
+.recommend:not(:first-child) {
+  margin-left: 16px;
+
+}
+
+.recommend {
+  cursor: pointer;
+  white-space: nowrap;
+  color: #000 !important;
+}
+
+
+.btn {
+  margin-left: 32px;
+}

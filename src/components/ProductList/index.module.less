@@ -1,11 +1,11 @@
 .wrap {
     width: 100%;
-    height: 1282px;
     background: #EAEFEB;
     display: flex;
-    // justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 100px;
+    position: relative;
 }
 
 .title {
@@ -16,7 +16,7 @@
     color: #232D37;
     line-height: 50px;
     font-style: normal;
-    margin-top: 100px;
+    margin-top: 70px;
     text-align: center;
 }
 
@@ -26,15 +26,18 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
-    width: 1032px;
+    width: 1020px;
 }
 
 .imgProductWrap {
-    width: 108px;
-    height: 108px;
-    background: #FFFFFF;
-    padding: 15px 11px 15px;
+    width: 109px;
+    height: 109px;
     text-align: center;
+}
+
+.imgProductWrap:hover {
+    border-radius: 4px;
+    border: 1px solid #3F86FF;
 }
 
 .item {
@@ -43,19 +46,17 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-right: 22px;
+    margin-right: 18px;
     text-align: center;
+}
 
+.item:last-of-type {
+    margin-right: 0;
 }
 
 .label {
     width: 100%;
     height: 27px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #578B95;
-    line-height: 27px;
-    text-align: center;
     font-style: normal;
     margin-top: 8px;
     white-space: nowrap;
@@ -63,20 +64,25 @@
     overflow: hidden;
     /* 使用省略号表示超出的文本 */
     text-overflow: ellipsis;
+    font-weight: 400;
+    font-size: 15px;
+    color: #54575A;
+    line-height: 27px;
+    text-align: center;
+    font-style: normal;
 }
 
 .tip {
-    width: 1032px;
+    width: 1020px;
     height: 33px;
     background: #FFFFFF;
-    border-radius: 4px;
     margin-top: 30px;
     text-align: center;
     line-height: 33px;
+    border-radius: 4px;
 }
 
 .con {
-    width: 322px;
     height: 27px;
     font-family: PingFangSC, PingFang SC;
     font-weight: 400;
@@ -90,7 +96,7 @@
 .products {
     display: flex;
     flex-direction: row;
-    width: 1050px;
+    width: 1020px;
     flex-wrap: wrap;
     box-sizing: border-box;
 }
@@ -99,32 +105,61 @@
 
     width: 243px;
     height: 243px;
-    background: #212232;
-    border-radius: 8px 8px 0px 0px;
-    margin-right: 15px;
-    // margin-top: 23px;
-    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.textWrap {
+.imgWrap:nth-of-type(4) {
+    margin-right: 0;
+}
+
+
+.imgProWrapMy {
+    margin-right: 15px;
+    margin-top: 23px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+.imgProWrapMy:nth-child(4) {
+    margin-right: 0;
+    flex: 1 1 auto;
+}
+
+.imgProWrapMy:nth-child(8) {
+    margin-right: 0;
+}
+
+.imgProWrapMy:nth-child(12) {
+    margin-right: 0;
+}
+
+.textWrap { 
     width: 243px;
     height: 118px;
     background: #FFFFFF;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
+
 
 .price {
     padding: 10px 0px 2px 15px;
     width: 60px;
-    // height: 33px;
 }
 
 .num {
-    font-weight: 500;
+    font-weight: 300;
     font-size: 24px;
     color: #FF5000;
     line-height: 33px;
     text-align: left;
     font-style: normal;
+    white-space: nowrap;
+
 }
 
 .uom {
@@ -141,13 +176,28 @@
 
 .des {
     width: 243px;
-    // height: 361px;
+    min-height: 30px;
     background: #FFFFFF;
-    // box-shadow: 0px 8px 20px 0px rgba(10, 46, 49, 0.05);
     border-radius: 8px;
     margin-top: 10px;
     // text-align: center;
     padding-left: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    overflow: hidden;
+    /* 使用省略号表示超出的文本，但这需要结合多行文本处理 */
+    text-overflow: ellipsis;
+    /* 不让单词在内部断开，但可能需要其他处理来避免文本溢出边界 */
+    word-break: keep-all;
+
+    /* 使用伪元素来实现多行文本省略号效果 */
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* 限制显示文本的行数 */
+    -webkit-box-orient: vertical;
+    /* 这些属性是WebKit浏览器特有的，Firefox和Edge可能需要其他方法 */
 }
 
 .address {
@@ -159,10 +209,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .icon {
-    width: 24px;
+    // width: 28px;
     height: 17px;
     font-weight: 400;
     font-size: 12px;
@@ -173,6 +225,7 @@
     background: #EFFFF6;
     border-radius: 2px;
     margin-left: 15px;
+    white-space: nowrap;
 }
 
 .afterText {
@@ -191,4 +244,45 @@
     overflow: hidden;
     /* 使用省略号表示超出的文本 */
     text-overflow: ellipsis;
+}
+
+.iframe-container {
+    position: absolute;
+    top: 430px;
+    right: 30px;
+    height: 100vh;
+    width: 375px;
+    /* Adjust width as needed */
+    z-index: 1000;
+    background: white;
+    /* Optional: background color */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    /* Optional: shadow for better visibility */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side-iframe {
+    width: 100%;
+    height: 90%;
+    border: none;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff5f5f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

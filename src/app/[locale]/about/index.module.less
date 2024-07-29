@@ -2,6 +2,7 @@
 .anchor-container {
     position: absolute;
     margin: auto;
+    top: 36.6667vw;
     width: 899px;
     height: 66px;
     background: #FFFFFF;
@@ -11,11 +12,26 @@
     left: 50%;
     transform: translateX(-50%);
     text-decoration: none;
+    
 }
 
-.stickyTop{
+.stickyTop {
     top: 600px;
 }
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 40%;
+    /* 计算方式： (766 / 1920) * 100% */
+}
+
+
+.responsiveImage {
+    object-fit: cover;
+}
+
 
 .anchor-container.sticky {
     position: fixed !important;
@@ -46,10 +62,11 @@
     text-align: center;
     line-height: 66px;
     color: #333333;
+    font-size: 18px;
 }
 
 .anchor-link:hover {
-    color: #14B656;
+    color: #3F86FF;
     font-weight: bold;
     cursor: pointer;
 }
@@ -57,41 +74,58 @@
 /* 活跃锚点的样式 */
 .active {
     font-weight: bold;
-    color: #14B656;
+    color: #3F86FF;
     background: #EAEFEB;
 }
 
 
 .section1 {
-    padding: 20px;
+    padding: 100px 20px;
     width: 100%;
-    ;
-    height: 656px;
+    // height: 656px;
     background: #fbfbfb;
-    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
     height: 50px;
     font-family: PingFangSC, PingFang SC;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 36px;
     color: #333333;
     line-height: 50px;
     text-align: center;
     font-style: normal;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2s ease forwards;
 }
+
+  
+
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
 .dec {
     height: 27px;
     font-family: PingFangSC, PingFang SC;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18px;
     color: #333333;
     line-height: 27px;
     text-align: center;
     font-style: normal;
     margin-top: 12px;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
 }
 
 
@@ -110,14 +144,22 @@
 .wrapRow {
     display: flex;
     flex-direction: column;
-    margin-right: 24px;
+    margin-right: 98px;
+}
+
+.wrapRow:nth-child(4) {
+    margin-right: 0px;
 }
 
 
 
 .wrapJoin {
     background: #EAEFEB;
-    height: 1033px;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
+    // min-height: 400px;
+    //  min-height: 533px;
+    //  max-height: 1033px;
 }
 
 .bottom {
@@ -135,7 +177,7 @@
 .bottomName {
     height: 24px;
     font-family: PingFangSC, PingFang SC;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 22px;
     color: #232D37;
     line-height: 24px;
@@ -148,16 +190,16 @@
 .des {
     width: 238px;
     height: 75px;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18px;
     color: #999999;
-   
+
     text-align: center;
     font-style: normal;
     margin-top: 16px;
     margin-bottom: 15px;
 
-    
+
 }
 
 
@@ -167,6 +209,8 @@
     height: 656px;
     background: #ffffff;
     padding-top: 100px;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
 }
 
 .photoText {
@@ -189,6 +233,8 @@
     overflow: hidden;
     /* 使用省略号表示超出的文本 */
     text-overflow: ellipsis;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
 }
 
 
@@ -203,6 +249,8 @@
     text-align: left;
     font-style: normal;
     margin-top: 20px;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
 }
 
 .dot::before {
@@ -224,6 +272,8 @@
     text-align: left;
     font-style: normal;
     white-space: break-spaces;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
 }
 
 .teamProduce {
@@ -246,6 +296,8 @@
     text-align: left;
     font-style: normal;
     margin-top: 24px;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease forwards;
 }
 
 .leftdes2 {
@@ -262,6 +314,7 @@
 
 .right {
     order: 2;
+    margin-left: 40px;
 }
 
 
@@ -269,6 +322,7 @@
     order: 1;
     margin-left: unset;
     margin-top: 71px;
+    width: 446px;
 }
 
 .leftTeam {
@@ -290,7 +344,7 @@
 .bottomJoinName {
     height: 38px;
     font-family: PingFangSC, PingFang SC;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 20px;
     color: #333333;
     line-height: 38px;
@@ -301,7 +355,7 @@
 
 .apply {
     width: 832px;
-    height: 470px;
+    height: 0px;
     background: #EAEFEB;
     box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -311,6 +365,24 @@
     align-items: center;
     flex-direction: column;
     margin: 50px auto 0;
+
+    /* 初始状态 */
+    opacity: 0;
+    transform: translateY(20px);
+    /* 初始位置向下偏移一些距离 */
+    transition: opacity 0.3s ease-in-out, transform 1s ease-in-out;
+    /* 其他样式 */
+    padding: 10px;
+    margin-bottom: 10px;
+    /* 为了更好地看到动画效果 */
+}
+
+.apply.visible {
+    /* 显示状态 */
+    opacity: 1;
+    transform: translateY(0);
+    height: 470px;
+    /* 回到正常位置 */
 }
 
 .name {
@@ -380,10 +452,21 @@
     border-radius: 0px 6px 6px 0px;
     padding: 0 10px;
     box-sizing: border-box;
+    background: #EAEFEB;
+    // border-radius: 6px;
+    // border: 1px solid rgba(51, 51, 51, 0.7);
 }
 
 .input-field[required] {
-    background-color: #f8f8f8;
+    background: #EAEFEB;
+}
+
+.input-field:focus {
+    outline: none;
+    /* 移除默认的聚焦轮廓 */
+    border-color: #3F86FF;
+    border: 1px solid #3F86FF;
+    /* 设置为红色边框，你可以更改为你想要的颜色 */
 }
 
 .input-error {
@@ -400,6 +483,9 @@
     width: 100%;
     height: 50px;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .file-upload-wrapper input[type="file"] {
@@ -415,17 +501,17 @@
 }
 
 .file-upload-btn {
-    width: 526px;
+    // width: 526px;
     width: 100%;
     height: 100%;
     border: none;
-    background-color: #f8f8f8;
+    background: #EAEFEB;
     border-radius: 6px;
     padding: 0 10px;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
 }
 
 .form-group:not(:first-child) {
@@ -440,11 +526,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 32px;
+    // margin-top: -20px;
 }
 
 .form-btn {
     border: none;
     background: unset;
     color: #FFFFFF;
+    width: 100%;
 }

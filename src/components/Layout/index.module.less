@@ -1,212 +1,101 @@
-.logo {
-    margin: 16px;
-    display: inline-block;
-    width: calc(100% - 42px);
-    font-weight: bold;
-    font-size: 18px;
-    background-color: rgba(73, 82, 123, 0.3);
-    padding: 6px 12px 8px;
-    color: #fff;
-    border-radius: 6px;
-    text-align: center;
+.myLogo {
+    display: block;
+    // margin: 0 auto;
+
 }
 
-.leftControl {
-    // background-image: url('../assets/logo.png');
-    width: 22em;
-    height: 4em;
+.dropdown {
+    :global {
+        .ant-dropdown {
+            width: 500px;
+        }
+    }
 }
 
-.noline {
+.headerRow {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.LineLink{
-    color: #000;
-}
-.LineLink:hover{
-    color: #14B656;
-}
-
-.active {
-    color: #14B656;
-}
-.active:hover{
-    color: #14B656;
-}
-
-.noline a:not(:last-child) {
-    margin-right: 30px;
-}
-
-.line {
-    max-height: calc(100vh - 60px);
-    overflow: auto;
-    overscroll-behavior: contain;
-    transition: all .3s ease !important;
-    position: absolute;
-    top: 60px;
-    left: 0;
+.fixHeader {
+    background-color: rgba(255, 255, 255, 1) !important;
+    color: rgba(0, 0, 0, 1) !important;
+    position: fixed;
     width: 100%;
-    margin: 0;
-    overflow: hidden;
-    // height: calc(100vh - 60px);
-    text-align: center;
-    // background-color: #fff;
-    border: 0;
-    // border: 1px solid red;
     z-index: 1000;
-
-
-    .line-a {
-        height: 60px;
-        margin-right: 0;
-        font-size: 15px;
-        font-weight: 600;
-        display: block;
-        background-color: #fff;
-        line-height: 60px;
-        color: #222 !important;
-        border-bottom: 1px solid hsla(0, 0%, 58.8%, .2);
-        // opacity: 0;
-        // transform: translateY(-20px);
-        // transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .line-a.expand {
-        /* 展开状态，比如透明度为1，位置在正确位置等 */
-        animation: expandDown 0.5s ease-out forwards;
-    }
-
-    .line-a.collapseUp {
-        animation: collapseUp 0.5s ease-in forwards;
-    }
-
- 
-}
-
-/* 当链接需要展开时应用的类 */
-.expand {
-    animation: expandDown 0.5s ease-out forwards;
-}
-
-/* 当链接需要收缩时应用的类（可选，如果你需要一个不同的动画效果） */
-.collapseUp {
-    animation: collapseUp 0.5s ease-in forwards;
-}
-
-/* 如果有多个链接需要逐一展开或收缩，使用延迟 */
-.line-a:nth-child(1) {
-    /* 第一个链接没有延迟 */
-}
-
-.line-a:nth-child(2) {
-    animation-delay: 0.1s;
-    /* 第二个链接延迟0.1秒 */
-}
-
-.line-a:nth-child(3) {
-    animation-delay: 0.6s;
-    /* 第三个链接延迟0.2秒 */
-}
-
-.line-a:nth-child(4) {
-    animation-delay: 0.8s;
-    /* 第四个链接延迟0.2秒 */
-}
-
-/* 展开动画 */
-@keyframes expandDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-        /* 初始位置稍微向上一些 */
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        /* 最终位置 */
-    }
-}
-
-/* 收缩动画 */
-@keyframes collapseUp {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-        /* 初始位置 */
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-20px);
-        /* 最终位置稍微向上一些 */
-    }
-}
-
-
-.rightControl {
     display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    min-width: 500px;
-}
-
-.wrap-menu {
-    display: flex;
-    width: 100%;
     justify-content: center;
     align-items: center;
 }
 
-.line {}
+.myHeader {
+    width: 1020px;
+    display: flex;
+    justify-content: space-around;
+}
 
-.group {
-    // height: 70px;
+.changeLeft {
+    display: flex;
+    height: 64px;
+    line-height: 64px;
+    justify-content: center;
+    align-items: center;
 }
 
 .changeRight {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-end;
+    min-width: 550px;
+}
+
+
+
+
+.noLine {
+    display: flex;
     align-items: center;
-    min-width: 500px;
+}
+
+.noLine a:not(:last-child) {
+    margin-right: 30px;
+}
+
+.LineLink {
+    color: #666D74;
+    position: relative;
+}
+
+.LineLink::after {
+    background-color: #3F86FF;
+    bottom: 18px;
+    content: '';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: width .33s linear;
+    width: 0%;
+}
+
+.LineLink:hover::after {
+    width: 100%;
+}
+
+.LineLink:hover {
+    color: #232D37;
+
+}
+
+.active {
+    color: #3F86FF;
+}
+
+.active:hover {
+    color: #3F86FF;
 }
 
 
-/* 假设的CSS样式 */
-.folded {
-    max-width: 60px;
-    overflow: hidden;
-    /* 其他需要的样式 */
-}
-
-.toggle-icon {
-    /* 控制图标大小和位置的样式 */
-    transition: transform 0.3s ease;
-    /* 平滑的旋转过渡效果 */
-}
-
-.icon-size{
-    font-size: 22px;
-}
-
-
-@media screen and (max-width: 767px) {
-
-    /* CSS rules */
-    .rightControl {
-        width: 100%;
-    }
-    .changeRight{
-        display: flex;
-        justify-content:flex-end;
-        align-items:center;
-    }
-
-}
 
 .i18n {
     cursor: pointer;
@@ -214,87 +103,50 @@
     margin-left: 30px;
     // margin-left: 240px;
 }
-.i18n:hover{
+
+.i18n:hover {
     color: #000;
 }
 
-.i18n:hover {
-    // color: #14B656 !important;
-    // border: none !important;
+
+.download {
+    display: flex;
+    background: #fff;
+    padding: 10px 20px;
+    justify-content: center;
+    transform: translateY(-5px);
+}
+
+.downloadCol {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.downloadColBd {
+    padding: 10px;
+    background: #ECF2EE;
+}
+
+.downloadColRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.downloadColRightBd {
+    padding: 10px;
+    background: #ECF2EE;
 }
 
 .download-btn {
     margin-left: 30px;
 }
 
-.checked {
-    color: #14B656;
-    height: 48px;
-    border-bottom: 2px solid #14B656;
-    transition-delay: 0.1s;
-    transition: all 0.2s linear;
-    cursor: pointer;
-
-}
-
-.header {
-    background-color: #fff;
-    padding: 0.4rem;
-    overflow: hidden;
-    height: 3.2rem;
-    border-bottom: 1px solid #ccc;
-}
-
-
-.screen {
-    display: inline-block;
-    width: 1920px; //设计稿的宽度
-    height: 960px; //设计稿的高度
-    transform-origin: 0 0;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.5s ease-out;
-    /* 定义过渡效果，持续时间为0.5秒 */
-    /* 应用动画 */
-}
-
-
-
-.skeletonScreen {
-    background: linear-gradient(90deg, #f3f3f3, #e9e9e9);
-    /* 渐变色背景 */
-    margin-bottom: 10px;
-    /* 项之间的间距 */
-    border-radius: 4px;
-    /* 圆角 */
-    opacity: 1;
-    /* 初始透明度 */
-    animation: pulse 0.5s infinite;
-    /* 应用动画 */
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 1;
-    }
-
-    30% {
-        opacity: 0.3;
-        /* 在动画中间点降低透明度 */
-    }
-
-    50% {
-        opacity: 0.6;
-        /* 在动画中间点降低透明度 */
-    }
-
-    70% {
-        opacity: 0.8;
-        /* 在动画中间点降低透明度 */
-    }
-
-    100% {
-        opacity: 1;
-    }
+.myContent {
+    position: relative;
+    margin-top: 64px;
 }

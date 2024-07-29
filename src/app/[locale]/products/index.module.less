@@ -1,0 +1,122 @@
+.messageWrapContainer {
+    width: 100%;
+    position: absolute;
+    bottom: -50px;
+    left: 22vw;
+    z-index: 10000;
+    // left: 30.2%;
+}
+
+.messageWrap {
+    // width: 789px;
+    height: 247px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 18px 26px;
+    // position: absolute;
+    // top: 370px;
+    // left: 30.2%;
+    // transform: translate(-50%, 0);
+
+}
+
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 40%;
+    /* 计算方式： (766 / 1920) * 100% */
+}
+
+
+.responsiveImage {
+    object-fit: cover;
+}
+
+.message {
+    font-weight: 400;
+    font-size: 66px;
+    color: #F8FFFD;
+    line-height: 81px;
+    text-shadow: inset 0px 1px 1px rgba(181, 181, 181, 0.5);
+    text-align: left;
+    font-style: normal;
+}
+
+.messageEn {
+    margin-top: 17px;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 300;
+    font-size: 18px;
+    color: #D2F0EE;
+    line-height: 30px;
+    text-align: left;
+    font-style: normal;
+}
+
+.productsCn2 {
+    position: relative;
+}
+
+.productsCn2::after {
+    content: '';
+    top: 67px;
+    z-index: -2;
+    opacity: 0.8;
+    position: absolute;
+    width: 261px;
+    display: block;
+    height: 7px;
+    background: linear-gradient(310deg, #00BE4E 0%, #87D106 100%);
+}
+
+.productsCn3::after {
+    content: '';
+    top: 260px;
+    z-index: 1;
+    opacity: 0.8;
+    position: absolute;
+    width: 345px;
+    display: block;
+    height: 7px;
+    background: linear-gradient(310deg, #00BE4E 0%, #87D106 100%);
+}
+
+
+.download {
+    display: flex;
+    // background: #fff;
+    // padding: 10px 20px;
+    // justify-content: center;
+}
+
+.downloadCol {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.downloadColBd {
+    padding: 10px;
+    background: #ECF2EE;
+}
+
+.downloadColRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.downloadColRightBd {
+    padding: 10px;
+    background: #ECF2EE;
+}
+
+.textDownload {
+    color: #F8FFFD;
+}
